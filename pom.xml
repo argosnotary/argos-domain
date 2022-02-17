@@ -64,7 +64,6 @@
 		<mapstruct.version>1.4.2.Final</mapstruct.version>
 		<maven-compiler-plugin.version>3.9.0</maven-compiler-plugin.version>
 		<maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
-		<maven-toolchains-plugin.version>3.0.0</maven-toolchains-plugin.version>
 		<mockito-junit-jupiter.version>4.3.1</mockito-junit-jupiter.version>
 		<license-maven-plugin.version>4.1</license-maven-plugin.version>
 		<lombok.version>1.18.22</lombok.version>
@@ -158,25 +157,6 @@
 						</path>
 					</annotationProcessorPaths>
 				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-toolchains-plugin</artifactId>
-				<version>${maven-toolchains-plugin.version}</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>toolchain</goal>
-						</goals>
-						<configuration>
-							<toolchains>
-								<jdk>
-									<version>${java.version}</version>
-								</jdk>
-							</toolchains>
-						</configuration>
-					</execution>
-				</executions>
 			</plugin>
 			<plugin>
 				<groupId>com.mycila</groupId>
