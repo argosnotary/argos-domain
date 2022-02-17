@@ -205,7 +205,7 @@
 					<threads>8</threads>
 					<timeoutConstant>30000</timeoutConstant>
 					<timestampedReports>false</timestampedReports>
-					<mutationThreshold>60</mutationThreshold>
+					<mutationThreshold>90</mutationThreshold>
 					<coverageThreshold>75</coverageThreshold>
 					<failWhenNoMutations>true</failWhenNoMutations>
 					<reportsDirectory>${project.build.directory}/pi-report</reportsDirectory>
@@ -241,11 +241,6 @@
 					<execution>
 						<goals>
 							<goal>prepare-agent</goal>
-						</goals>
-					</execution>
-					<execution>
-						<id>report</id>
-						<goals>
 							<goal>report</goal>
 						</goals>
 					</execution>

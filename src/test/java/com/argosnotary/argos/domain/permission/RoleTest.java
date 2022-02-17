@@ -19,21 +19,35 @@
  */
 package com.argosnotary.argos.domain.permission;
 
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
-public enum Role {
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-    ADMINISTRATOR;
+class RoleTest {
+    Set<Permission> permissions;
 
-    public Set<Permission> getPermissions() {
-        Set<Permission> permissions = new HashSet<>();
-        permissions.addAll(Arrays.asList(
-            Permission.READ, 
-            Permission.LOCAL_PERMISSION_EDIT, 
-            Permission.TREE_EDIT,
-            Permission.ASSIGN_ROLE));
-        return permissions;
+    @BeforeEach
+    void setUp() throws Exception {
+        permissions = new HashSet<>();
+        permissions.addAll(Set.of( 
+                Permission.LOCAL_PERMISSION_EDIT,
+                Permission.TREE_EDIT,
+                Permission.READ, 
+                Permission.ASSIGN_ROLE));
+        
     }
+
+    @Test
+    void permissionTest() {
+        assertThat(Role.ADMINISTRATOR.getPermissions(), is(permissions));
+    }
+
 }
