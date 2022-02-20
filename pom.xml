@@ -61,12 +61,12 @@
 		<jacoco-maven-plugin.version>0.8.7</jacoco-maven-plugin.version>
 		<java.version>17</java.version>
 		<junit.version>5.8.2</junit.version>
+		<license-maven-plugin.version>4.1</license-maven-plugin.version>
+		<lombok.version>1.18.22</lombok.version>
 		<mapstruct.version>1.4.2.Final</mapstruct.version>
 		<maven-compiler-plugin.version>3.9.0</maven-compiler-plugin.version>
 		<maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
 		<mockito-junit-jupiter.version>4.3.1</mockito-junit-jupiter.version>
-		<license-maven-plugin.version>4.1</license-maven-plugin.version>
-		<lombok.version>1.18.22</lombok.version>
 		<pitest-junit5-plugin.version>0.15</pitest-junit5-plugin.version>
 		<pitest-maven.version>1.7.4</pitest-maven.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -99,15 +99,17 @@
 			<artifactId>bcpkix-jdk15on</artifactId>
 			<version>${bcpkix-jdk15on.version}</version>
 		</dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        
+        <!-- testing -->
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter</artifactId>
-			<version>${junit.version}</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter-params</artifactId>
 			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
@@ -123,13 +125,8 @@
 			<version>${hamcrest-library.version}</version>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<version>${lombok.version}</version>
-			<scope>provided</scope>
-		</dependency>
 	</dependencies>
+	
 	<build>
 		<plugins>
 			<plugin>

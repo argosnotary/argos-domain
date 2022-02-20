@@ -19,8 +19,6 @@
  */
 package com.argosnotary.argos.domain.account;
 
-import com.argosnotary.argos.domain.crypto.KeyPair;
-import com.argosnotary.argos.domain.permission.LocalPermissions;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -28,13 +26,17 @@ import lombok.Setter;
 
 import java.io.Serializable;
 import java.util.Set;
+import java.util.UUID;
+
+import com.argosnotary.argos.domain.crypto.KeyPair;
+import com.argosnotary.argos.domain.permission.LocalPermissions;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @EqualsAndHashCode
 public abstract class Account implements Serializable {
-    private String accountId;
+    private UUID accountId;
     private String name;
     private String email;
     private KeyPair activeKeyPair;

@@ -32,6 +32,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.UUID;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.contains;
@@ -50,7 +51,7 @@ class PersonalAccountTest {
     protected static final String AZURE = "azure";
     protected static final LocalPermissions LOCAL_PERMISSIONS = LocalPermissions
             .builder()
-            .permissions(Collections.singleton(Permission.TREE_EDIT)).labelId("labelId").build();
+            .permissions(Collections.singleton(Permission.TREE_EDIT)).labelId(UUID.randomUUID()).build();
 
     @Mock
     private KeyPair activeKeyPair;
@@ -73,7 +74,6 @@ class PersonalAccountTest {
                 .build();
 
 
-        assertThat(account.getAccountId(), hasLength(36));
         assertThat(account.getName(), is(NAME));
         assertThat(account.getEmail(), is(EMAIL));
         assertThat(account.getActiveKeyPair(), sameInstance(activeKeyPair));
@@ -106,7 +106,6 @@ class PersonalAccountTest {
         account.setLocalPermissions(Collections.singleton(LOCAL_PERMISSIONS));
 
 
-        assertThat(account.getAccountId(), hasLength(36));
         assertThat(account.getName(), is(NAME));
         assertThat(account.getEmail(), is(EMAIL));
         assertThat(account.getActiveKeyPair(), sameInstance(activeKeyPair));

@@ -43,12 +43,12 @@ public class ServiceAccount extends Account {
         permissions.add(Permission.LINK_ADD);
                 permissions.add(Permission.RELEASE);
     }
-    private String parentLabelId;
+    private UUID parentLabelId;
 
     @Builder
     public ServiceAccount(String name, KeyPair activeKeyPair,
-            Set<KeyPair> inactiveKeyPairs, String parentLabelId) {
-        super(UUID.randomUUID().toString(), name, null, activeKeyPair,
+            Set<KeyPair> inactiveKeyPairs, UUID parentLabelId) {
+        super(UUID.randomUUID(), name, null, activeKeyPair,
                 inactiveKeyPairs == null ? new HashSet<>() : inactiveKeyPairs,
                 singleton(LocalPermissions.builder().labelId(parentLabelId)
                         .permissions(permissions).build()));

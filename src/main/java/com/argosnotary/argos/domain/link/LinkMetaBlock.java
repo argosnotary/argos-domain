@@ -19,6 +19,8 @@
  */
 package com.argosnotary.argos.domain.link;
 
+import java.util.UUID;
+
 import com.argosnotary.argos.domain.crypto.Signature;
 
 import lombok.Builder;
@@ -33,7 +35,7 @@ import lombok.ToString;
 @EqualsAndHashCode
 @ToString
 public class LinkMetaBlock {
-    private String supplyChainId;
+    private UUID supplyChainId;
     private Signature signature;
     private Link link;
 }

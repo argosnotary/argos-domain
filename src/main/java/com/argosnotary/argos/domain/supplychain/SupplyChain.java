@@ -24,7 +24,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import static java.util.UUID.randomUUID;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -32,7 +32,7 @@ import static java.util.UUID.randomUUID;
 @ToString
 public class SupplyChain {
     @Builder.Default
-    private String supplyChainId = randomUUID().toString();
+    private UUID supplyChainId = UUID.randomUUID();
     private String name;
     private String parentLabelId;
 }

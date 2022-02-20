@@ -30,8 +30,7 @@ import lombok.Setter;
 
 import java.util.HashSet;
 import java.util.Set;
-
-import static java.util.UUID.randomUUID;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -48,7 +47,7 @@ public class PersonalAccount extends Account {
             Set<Role> roles,
             Set<LocalPermissions> localPermissions
     ) {
-        super(randomUUID().toString(),
+        super(UUID.randomUUID(),
                 name,
                 email,
                 activeKeyPair,

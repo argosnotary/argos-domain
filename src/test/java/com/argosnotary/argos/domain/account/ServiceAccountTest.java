@@ -27,10 +27,10 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.UUID;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.contains;
@@ -42,7 +42,7 @@ import static org.hamcrest.Matchers.sameInstance;
 @ExtendWith(MockitoExtension.class)
 class ServiceAccountTest {
 
-    private static final String PARENT_LABEL_ID = "parentLabelId";
+    private static final UUID PARENT_LABEL_ID = UUID.randomUUID();
     private static final String NAME = "name";
 
     @Mock
@@ -61,7 +61,6 @@ class ServiceAccountTest {
                 .activeKeyPair(activeKeyPair)
                 .inactiveKeyPairs(Collections.singleton(keyPair))
                 .build();
-        assertThat(account.getAccountId(), hasLength(36));
         assertThat(account.getEmail(), nullValue());
         assertThat(account.getActiveKeyPair(), sameInstance(activeKeyPair));
         assertThat(account.getInactiveKeyPairs(), contains(keyPair));
@@ -77,7 +76,6 @@ class ServiceAccountTest {
         account.setActiveKeyPair(activeKeyPair);
         account.setInactiveKeyPairs(Collections.singleton(keyPair));
         
-        assertThat(account.getAccountId(), hasLength(36));
         assertThat(account.getEmail(), nullValue());
         assertThat(account.getActiveKeyPair(), sameInstance(activeKeyPair));
         assertThat(account.getInactiveKeyPairs(), contains(keyPair));

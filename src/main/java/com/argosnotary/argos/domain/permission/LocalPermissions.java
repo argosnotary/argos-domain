@@ -26,12 +26,13 @@ import lombok.Setter;
 
 import java.io.Serializable;
 import java.util.Set;
+import java.util.UUID;
 
 @Getter
 @Setter
 @Builder
 @EqualsAndHashCode
 public class LocalPermissions implements Serializable {
-    private String labelId;
+    private UUID labelId;
     private Set<Permission> permissions;
 }
